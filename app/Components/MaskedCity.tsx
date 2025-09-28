@@ -91,6 +91,8 @@ function MaskRectangle() {
           <Rect className="rect-bottom" x="0.70" y="0.52" />
         </clipPath>
       </defs>
+
+     
     </svg>
   );
 }

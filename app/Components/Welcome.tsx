@@ -25,7 +25,7 @@ export default function Welcome() {
       <GreenCard className="sticky top-[27vh]" contentClass=" max-w-[690px] pl-[54px] pr-[32px] py-[47px]">
         <h3 className="sub-heading">Welcome!</h3>
 
-        <p className="text-[20px] mt-[20px]">
+        <p className=" mt-[20px]">
           “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
           <br /> <br />

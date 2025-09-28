@@ -18,7 +18,7 @@ export default function Kickstart() {
         >
           <h3 className="sub-heading">Kickstart Properties</h3>
 
-          <p className="text-[20px] mt-[15px]">
+          <p className="mt-[15px]">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
