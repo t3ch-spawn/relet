@@ -43,6 +43,10 @@
   .center-x-y {
     @apply translate-x-[-50%] left-[50%] translate-y-[-50%] top-[50%];
   }
+
+  .sub-heading {
+    @apply text-[42px] relative w-fit;
+  }
 }
 
 body {
@@ -51,6 +55,29 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.sub-heading::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #15cc5d;
+}
+
+.green-gradient {
+  background: linear-gradient(to bottom, #73737300, #15cc5d);
+}
+
 .stem {
   font-family: "Stem";
+}
+
+.whitespace {
+  height: 100vh;
+  width: 100%;
+}
+
+.masked_city {
+  clip-path: url(#rect-clip);
 }

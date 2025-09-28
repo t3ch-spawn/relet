@@ -20,6 +20,7 @@ import bank from "@/public/bank.png";
 import rocket from "@/public/rocket.png";
 import plant1 from "@/public/plants1.png";
 import plant2 from "@/public/plants2.png";
+import central_office from "@/public/central_office.png";
 import Image from "next/image";
 import gsap from "gsap";
 
@@ -119,7 +120,24 @@ export default function RoadBuildings() {
           opacity: 1,
         },
         "<0.7"
-      );
+      )
+      .to(".central_office", {
+        opacity: 1,
+      })
+      .to(".central_office", {
+        delay: 2,
+        opacity: 0,
+      });
+
+    gsap.to(".buildings-overlay", {
+      opacity: 1,
+      scrollTrigger: {
+        trigger: ".white-2",
+        start: "top 90%",
+        end: "top 30%",
+        scrub: true,
+      },
+    });
   });
   return (
     // Container for buildings, road and trees
@@ -220,6 +238,16 @@ export default function RoadBuildings() {
         alt="rocks"
         className="rocks fixed bottom-0 opacity-0 z-[7]"
       />
+
+      {/* Central office image */}
+      <Image
+        src={central_office}
+        className="max-w-[578px] fixed z-[9] top-[-50px] opacity-0 translate-x-[250px] central_office"
+        alt="central office"
+      />
+
+      {/* Overlay for the buildings and everything */}
+      <div className="buildings-overlay fixed bg-[#000000A6] opacity-0 w-full h-full top-0 z-[11]"></div>
     </div>
   );
 }
