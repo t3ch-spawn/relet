@@ -8,8 +8,8 @@ import arr_right from "@/public/arr_right.svg";
 
 export default function Roadmap() {
   return (
-    <section className="z-[12] sticky top-[10vh] h-[200vh]">
-      <div className="relative max-w-[1100px]  w-full mx-auto">
+    <section className="z-[12] relative h-[200vh]">
+      <div className=" sticky top-[10vh]  max-w-[1100px]  w-full mx-auto">
         <div className="flex justify-start gap-[55px] items-center w-full mx-auto">
           <h2 className="text-[80px] font- leading-[100%]">Roadmap</h2>
 

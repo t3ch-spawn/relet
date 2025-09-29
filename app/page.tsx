@@ -10,6 +10,7 @@ import Kickstart from "./Components/Kickstart";
 import MaskedCity from "./Components/MaskedCity";
 import Tokenized from "./Components/Tokenized";
 import Roadmap from "./Components/Roadmap";
+import Partners from "./Components/Partners";
 
 export default function Home() {
   gsap.registerPlugin(ScrollTrigger);
@@ -17,7 +18,7 @@ export default function Home() {
   return (
     <main className="stem w-full bg-black/70">
       <Hero />
-      {/* <RoadBuildings /> */}
+      <RoadBuildings />
       <div className="whitespace white-1"></div>
       <div className="whitespace white-2"></div>
       <Welcome />
@@ -28,6 +29,7 @@ export default function Home() {
       <div className="whitespace white-5"></div>
       <Roadmap />
       <div className="whitespace white-6"></div>
+      <Partners />
     </main>
   );
 }
