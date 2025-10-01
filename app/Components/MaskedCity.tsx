@@ -8,7 +8,7 @@ import gsap from "gsap";
 
 export default function MaskedCity() {
   return (
-    <div className="max-w-[1200px] w-full overflow-hidden mx-auto sticky top-0 translate-y-[-10%]">
+    <div className="max-w-[1200px] w-full overflow-hidden mx-auto sticky top-0 translate-y-[-20%]">
       <Image
         src={masked_city}
         alt="city"
@@ -67,35 +67,59 @@ function MaskRectangle() {
     <svg
       width="100%"
       height="100%"
-      className="absolute inset-0 city-svg"
+      className="absolute min-w-[898px] inset-0 city-svg"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
         <clipPath clipPathUnits="objectBoundingBox" id="rect-clip">
           {/* <Rect className="rect-bottom" x="0.07" y="0.1" /> */}
-          {/* <Rect className="rect-top" x="0.07" y="0.3" /> */}
+          <Rect
+            className="rect-top hidden max-[1024px]:block"
+            x="0"
+            y="0.26"
+            width="0.4"
+            height="0.14"
+          />
           <Rect className="rect-top max-[1024px]:hidden" x="0.07" y="0.3" />
           <Rect className="rect-top max-[1024px]:hidden" x="0.28" y="0.3" />
           <Rect className="rect-top max-[1024px]:hidden" x="0.49" y="0.3" />
           <Rect className="rect-top max-[1024px]:hidden" x="0.70" y="0.3" />
 
           {/* Middle rectangles */}
-          {/* <Rect className="rect-middle" x="0.07" y="0.51" /> */}
+          <Rect
+            className="rect-middle hidden max-[1024px]:block"
+            x="0"
+            y="0.44"
+            width="0.4"
+            height="0.14"
+          />
           <Rect className="rect-middle max-[1024px]:hidden" x="0.07" y="0.41" />
           <Rect className="rect-middle max-[1024px]:hidden" x="0.28" y="0.41" />
           <Rect className="rect-middle max-[1024px]:hidden" x="0.49" y="0.41" />
           <Rect className="rect-middle max-[1024px]:hidden" x="0.70" y="0.41" />
 
           {/* Bottom rectangles */}
-          {/* <Rect className="rect-bottom" x="0.28" y="0.72" /> */}
+          <Rect
+            className="rect-bottom hidden max-[1024px]:block"
+            x="0"
+            y="0.63"
+            width="0.4"
+            height="0.14"
+          />
           <Rect className="rect-bottom max-[1024px]:hidden" x="0.07" y="0.52" />
           <Rect className="rect-bottom max-[1024px]:hidden" x="0.28" y="0.52" />
           <Rect className="rect-bottom max-[1024px]:hidden" x="0.49" y="0.52" />
           <Rect className="rect-bottom max-[1024px]:hidden" x="0.70" y="0.52" />
 
           {/* Fourth rectangle for mobile */}
-          {/* <Rect className="rect-bottom" x="0.28" y="0.3" /> */}
+          <Rect
+            className="rect-middle hidden max-[1024px]:block"
+            x="0"
+            y="0.82"
+            width="0.4"
+            height="0.14"
+          />
         </clipPath>
       </defs>
     </svg>
@@ -106,15 +130,17 @@ function Rect({
   x,
   y,
   className,
+  width = "0.2",
+  height = "0.09",
 }: {
   x: string;
   y: string;
   className: string;
+  width?: string;
+  height?: string;
 }) {
-  const height = "0.09";
-  const width = "0.2";
-//   const height = "0.16";
-//   const width = "0.7";
+  //   const height = "0.16";
+  //   const width = "0.7";
   useGSAP(() => {
     const svg = document.querySelector<SVGElement>(".city-svg");
 
@@ -126,10 +152,12 @@ function Rect({
     rect.setAttribute("width", `${Number(width) * 100}%`);
     rect.setAttribute("stroke", `#15CC5D`);
     rect.setAttribute("rx", `1%`);
-    rect.classList.add(className.split(" ")[0]);
-    rect.classList.add(className.split(" ")[1]);
 
-    // svg?.appendChild(rect);
+    className.split(" ").forEach((className) => {
+      rect.classList.add(className);
+    });
+
+    svg?.appendChild(rect);
   }, []);
 
   return (
@@ -139,8 +167,8 @@ function Rect({
       className={className}
       width={width}
       height={height}
-    //   rx="0.03"
-    //   ry="0.04"
+      //   rx="0.03"
+      //   ry="0.04"
       rx="0.01"
       ry="0.01"
       stroke="#15CC5D"
