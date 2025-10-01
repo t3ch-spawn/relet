@@ -16,15 +16,15 @@ export default function Home() {
   gsap.registerPlugin(ScrollTrigger);
 
   return (
-    <main className="stem w-full bg-black/70">
+    <main className="stem w-full text-white bg-black/70 ">
       <Hero />
       <RoadBuildings />
       <div className="whitespace white-1"></div>
       <div className="whitespace white-2"></div>
       <Welcome />
       <div className="whitespace white-3"></div>
-      <Kickstart />
-      <div className="whitespace white-4"></div>
+      {/* <Kickstart /> */}
+      {/* <div className="whitespace white-4"></div> */}
       <Tokenized />
       <div className="whitespace white-5"></div>
       <Roadmap />

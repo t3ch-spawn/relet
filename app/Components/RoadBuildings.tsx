@@ -143,20 +143,20 @@ export default function RoadBuildings() {
     // Container for buildings, road and trees
     <div className="h-[100vh] w-full buildings-cont opacity-0 relative z-[3]">
       {/* Robot */}
-      <Image
+      {/* <Image
         src={heroRobot}
         alt="robot"
         className="opacity-0 fixed center-x left-[49.5%] bottom-[60px] z-[8] heroRobot"
-      />
+      /> */}
 
       {/* Logo that fades in after robot */}
-      <Image
+      {/* <Image
         src={fadeLogo}
         alt="robot"
         className="opacity-0 fixed center-x left-[49.5%] bottom-[80px] z-[8] fade-logo scale-75"
-      />
+      /> */}
 
-      <Image
+      {/* <Image
         src={gate}
         alt="gate"
         className="gate z-[6] bottom-0 fixed  object-cover opacity-0"
@@ -165,8 +165,8 @@ export default function RoadBuildings() {
         src={building1}
         alt="building"
         className="building z-[6] bottom-0 fixed  object-cover opacity-0"
-      />
-      <Image
+      /> */}
+      {/* <Image
         src={building2}
         alt="building"
         className="building z-[5] bottom-0 fixed  object-cover opacity-0"
@@ -185,8 +185,8 @@ export default function RoadBuildings() {
         src={building5}
         alt="building"
         className="building z-[4] bottom-0 fixed  object-cover opacity-0"
-      />
-      <Image
+      /> */}
+      {/* <Image
         src={building6}
         alt="building"
         className="building z-[3] bottom-0 fixed  object-cover opacity-0"
@@ -200,51 +200,51 @@ export default function RoadBuildings() {
         src={plant1}
         alt="plant"
         className="building z-[7] bottom-0 fixed  object-cover opacity-0"
-      />
-      <Image
+      /> */}
+      {/* <Image
         src={plant2}
         alt="plant"
         className="building z-[4] bottom-0 fixed  object-cover opacity-0"
-      />
-      <Image
+      /> */}
+      {/* <Image
         src={cloudleft}
         alt="cloud"
         className="cloudleft z-[4] bottom-0 fixed  object-cover opacity-0"
-      />
-      <Image
+      /> */}
+      {/* <Image
         src={cloudright}
         alt="cloud"
         className="cloudright z-[2] bottom-0 fixed  object-cover opacity-0"
-      />
-      <Image
+      /> */}
+      {/* <Image
         src={topcloud}
         alt="cloud"
         className="topcloud z-[4] bottom-0 fixed  object-cover opacity-0"
-      />
-      <Image
+      /> */}
+      {/* <Image
         src={bank}
         alt="bank"
         className="market z-[2] bottom-0 fixed  object-cover opacity-0"
-      />
-      <Image
+      /> */}
+      {/* <Image
         src={rocket}
         alt="rocket"
         className="market z-[4] bottom-0 fixed  object-cover opacity-0"
-      />
+      /> */}
 
       {/* Rocks and road */}
-      <Image
+      {/* <Image
         src={rocksRoad}
         alt="rocks"
         className="rocks fixed bottom-0 opacity-0 z-[7]"
-      />
+      /> */}
 
       {/* Central office image */}
-      <Image
+      {/* <Image
         src={central_office}
         className="max-w-[578px] fixed z-[9] top-[-50px] opacity-0 translate-x-[250px] central_office"
         alt="central office"
-      />
+      /> */}
 
       {/* Overlay for the buildings and everything */}
       <div className="buildings-overlay fixed bg-[#000000A6] opacity-0 w-full h-full top-0 z-[11]"></div>

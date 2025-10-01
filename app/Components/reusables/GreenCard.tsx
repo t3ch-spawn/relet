@@ -18,7 +18,7 @@ export default function GreenCard({
       {/* Green gradient  */}
       <div className="h-full w-full z-[3] absolute inset-o green-gradient opacity-[0.15]"></div>
 
-      <div className={`z-[4] relative text-[20px] ${contentClass}`}>
+      <div className={`z-[4] relative text-[20px] max-[768px]:text-[16px] ${contentClass}`}>
         {children}
       </div>
     </div>

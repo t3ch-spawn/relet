@@ -11,9 +11,9 @@ export default function Kickstart() {
     <section className="h-[300vh] flex flex-col gap-[40px] justify-center relative z-[12]">
       <MaskedCity />
 
-      <div className="flex justify-center gap-[40px] relative h-full">
+      <div className="flex w-full top-[70vh] justify-center items-end gap-[40px] sticky max-[1024px]:flex-col max-[1024px]:items-center">
         <GreenCard
-          className="!sticky top-[50vh]"
+          className=""
           contentClass="max-w-[620px] px-[45px] pb-[44px] pt-[38px]"
         >
           <h3 className="sub-heading">Kickstart Properties</h3>
@@ -24,8 +24,11 @@ export default function Kickstart() {
           </p>
         </GreenCard>
 
+        {/* White space to separate kickstart greenbox and launch on relet on mobile */}
+        <div className="whitespace hidden max-[1024px]:block"></div>
+
         {/* Container for "launch on relet" */}
-        <div className="w-[97%] h-fit sticky top-[33vh] max-w-[520px] flex flex-col items-center text-center">
+        <div className="w-[97%] h-fit relative max-w-[520px] flex flex-col items-center text-center">
           <Image src={apply_robot} alt="robot" className="max-w-[270px]" />
           <h3 className="text-[42px]">Launch on Relet</h3>
 
@@ -43,7 +46,7 @@ export default function Kickstart() {
           <Image
             src={rokcet_launch}
             alt="rocket"
-            className="absolute right-[-25%] top-[-35%] max-h-[260px] object-contain "
+            className="absolute rotate-[-32deg] w-full max-w-[130px] right-[10%] top-[-45%] max-h-[260px] object-contain "
           />
         </div>
       </div>
