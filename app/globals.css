@@ -142,10 +142,14 @@
   }
 }
 
+.sub-heading {
+  --before-width: 100%;
+}
+
 .sub-heading::before {
   content: "";
   position: absolute;
-  width: 100%;
+  width: var(--before-width);
   height: 3px;
   border-radius: 20px;
   bottom: -6px;
@@ -180,4 +184,10 @@
 
 .partner-slider {
   clip-path: inset(0 22% 0 20%);
+}
+
+@media screen and (max-width: 1024px) {
+  .buildings-cont * {
+    display: none;
+  }
 }

@@ -9,8 +9,11 @@ import logo from "@/public/logo.svg";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Lenis from "lenis";
+import { ScrollTrigger, SplitText } from "gsap/all";
 
 export default function Hero() {
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(SplitText);
   useGSAP(() => {
     // Initialize Lenis
     const lenis = new Lenis({
@@ -39,10 +42,54 @@ export default function Hero() {
     mm.add("(max-width: 767px)", () => {
       tl.to(".moon", { y: "-190%", ease: "power1.inOut", opacity: 1 }, "<");
     });
+
+    // Animation for text animations
+    document.querySelectorAll(".text-anim").forEach((el) => {
+      SplitText.create(el, {
+        type: "lines",
+        mask: "lines",
+        linesClass: "animLine",
+        autoSplit: true,
+        onSplit: (self) => {
+          return gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: el,
+                start: "top 87%",
+              },
+            })
+            .from(self.lines, {
+              y: 80,
+              stagger: 0.08,
+              ease: "power2.inOut",
+              duration: 0.7,
+              onComplete: (e) => {
+                const lineMasks = el.querySelectorAll(".animLine-mask");
+
+                lineMasks.forEach((mask) => {
+                  mask.classList.add("no-clip");
+                });
+              },
+            });
+        },
+      });
+    });
+
+    document.querySelectorAll(".sub-heading").forEach((before) => {
+      gsap.from(before, {
+        "--before-width": "0%",
+        delay: 0.5,
+        ease: "power1.inOut",
+        scrollTrigger: {
+          trigger: before,
+          start: "top 87%",
+        },
+      });
+    });
   }, []);
 
   return (
-    <div className="w-full h-[100vh] relative overflow-hidden text-white flex justify-center items-center">
+    <section className="w-full h-[100vh] hero relative overflow-hidden text-white flex justify-center items-center">
       {/* Background star */}
       <Image
         src={stars}
@@ -76,6 +123,6 @@ export default function Hero() {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

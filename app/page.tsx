@@ -19,17 +19,19 @@ export default function Home() {
     <main className="stem w-full text-white bg-black ">
       <Hero />
       <RoadBuildings />
-      <div className="whitespace white-1"></div>
-      <div className="whitespace white-2"></div>
+      <div className="whitespace !h-[70vh]  white-1 relative"></div>
+      <div className="whitespace !h-[60vh] white-2 relative"></div>
       <Welcome />
-      <div className="whitespace white-3"></div>
+      {/* <div className="whitespace white-3"></div> */}
       <Kickstart />
-      <div className="whitespace white-4"></div>
+      {/* <div className="whitespace white-4"></div> */}
       <Tokenized />
-      <div className="whitespace white-5"></div>
+      {/* <div className="whitespace white-5"></div> */}
       <Roadmap />
-      <div className="whitespace white-6"></div>
+      {/* <div className="whitespace white-6"></div> */}
       <Partners />
+      <div className="whitespace !h-[30vh]"></div>
+
     </main>
   );
 }

@@ -8,11 +8,11 @@ import gsap from "gsap";
 
 export default function MaskedCity() {
   return (
-    <div className="max-w-[1200px] w-full overflow-hidden mx-auto sticky top-0 translate-y-[-20%]">
+    <div className="masked-city-cont max-w-[1200px] w-full overflow-hidden max-[1024px]:overflow-visible mx-auto sticky top-0 translate-y-[-20%]">
       <Image
         src={masked_city}
         alt="city"
-        className="masked_city max-w-[1200px] min-w-[898px] object-center w-full h-full object-cover"
+        className="masked_city max-w-[1200px] min-w-[898px] object-center w-full aspect-[1024/683] object-cover"
       />
       <MaskRectangle />
     </div>
@@ -20,54 +20,12 @@ export default function MaskedCity() {
 }
 
 function MaskRectangle() {
-  useGSAP(() => {
-    gsap.fromTo(
-      ".rect-top",
-      {
-        x: "20%",
-      },
-      {
-        x: "-20%",
-        repeat: -1,
-        yoyo: true,
-        ease: "power1.inOut",
-        duration: 1.5,
-      }
-    );
-    gsap.fromTo(
-      ".rect-middle",
-      {
-        x: "-33%",
-      },
-      {
-        x: "33%",
-        repeat: -1,
-        yoyo: true,
-        ease: "power1.inOut",
-        duration: 1.3,
-      }
-    );
-
-    gsap.fromTo(
-      ".rect-bottom",
-      {
-        x: "28%",
-      },
-      {
-        x: "-28%",
-        repeat: -1,
-        yoyo: true,
-        ease: "power1.inOut",
-        duration: 1.8,
-      }
-    );
-  }, []);
+  useGSAP(() => {}, []);
 
   return (
     <svg
       width="100%"
-      height="100%"
-      className="absolute min-w-[898px] inset-0 city-svg"
+      className="absolute min-w-[898px] aspect-[1024/683]  inset-0 city-svg"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -75,7 +33,7 @@ function MaskRectangle() {
         <clipPath clipPathUnits="objectBoundingBox" id="rect-clip">
           {/* <Rect className="rect-bottom" x="0.07" y="0.1" /> */}
           <Rect
-            className="rect-top hidden max-[1024px]:block"
+            className="rect-mob rect-top hidden max-[1024px]:block"
             x="0"
             y="0.26"
             width="0.4"
@@ -88,7 +46,7 @@ function MaskRectangle() {
 
           {/* Middle rectangles */}
           <Rect
-            className="rect-middle hidden max-[1024px]:block"
+            className="rect-mob rect-middle hidden max-[1024px]:block"
             x="0"
             y="0.44"
             width="0.4"
@@ -101,7 +59,7 @@ function MaskRectangle() {
 
           {/* Bottom rectangles */}
           <Rect
-            className="rect-bottom hidden max-[1024px]:block"
+            className="rect-mob rect-bottom hidden max-[1024px]:block"
             x="0"
             y="0.63"
             width="0.4"
@@ -114,7 +72,7 @@ function MaskRectangle() {
 
           {/* Fourth rectangle for mobile */}
           <Rect
-            className="rect-middle hidden max-[1024px]:block"
+            className="rect-mob rect-middle hidden max-[1024px]:block"
             x="0"
             y="0.82"
             width="0.4"
@@ -173,5 +131,48 @@ function Rect({
       ry="0.01"
       stroke="#15CC5D"
     />
+  );
+}
+
+export function moveSvgClips() {
+  gsap.fromTo(
+    ".rect-top",
+    {
+      x: "20%",
+    },
+    {
+      x: "-20%",
+      repeat: -1,
+      yoyo: true,
+      ease: "power1.inOut",
+      duration: 1.5,
+    }
+  );
+  gsap.fromTo(
+    ".rect-middle",
+    {
+      x: "-33%",
+    },
+    {
+      x: "33%",
+      repeat: -1,
+      yoyo: true,
+      ease: "power1.inOut",
+      duration: 1.3,
+    }
+  );
+
+  gsap.fromTo(
+    ".rect-bottom",
+    {
+      x: "28%",
+    },
+    {
+      x: "-28%",
+      repeat: -1,
+      yoyo: true,
+      ease: "power1.inOut",
+      duration: 1.8,
+    }
   );
 }

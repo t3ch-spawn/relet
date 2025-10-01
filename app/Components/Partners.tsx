@@ -81,6 +81,24 @@ export default function Partners() {
     },
   ];
 
+  //   Animating cards in
+  useGSAP(() => {
+    gsap
+      .timeline({
+        scrollTrigger: { trigger: ".partner-cards-cont", start: "top 77%" },
+      })
+      .from(".partner-card", {
+        opacity: 0,
+        bottom: "-50%",
+        stagger: 0.17,
+      })
+      .from(".partner-card-building", {
+        opacity: 0,
+        y: "50%",
+        stagger: 0.17,
+      });
+  });
+
   //   Place cards in their place on load
   useGSAP(() => {
     const allPartnerCards = document.querySelectorAll<Element>(".partnerCard");
@@ -171,17 +189,17 @@ export default function Partners() {
     });
   }
   return (
-    <section className="w-full h-[200vh] relative z-[12] overflow-hidden">
+    <section className="w-full mt-[40vh] relative z-[12] overflow-hidden">
       {/* Container for partners heading and Green card containing partner cards */}
       <div className="flex flex-col gap-[15px] items-start max-[1024px]:items-center w-full max-w-[1100px] mx-auto sticky top-[7vh]">
         {/* Partner heading */}
         <div className="flex justify-center items-center gap-[20px] ml-[3vw]">
           <Image
-            className="max-w-[40px] max-[600px]:hidden"
+            className="max-w-[40px] max-[600px]:hidden partner-card"
             src={logo}
             alt="logo"
           />
-          <h2 className="sub-heading max-[600px]:hidden">Partners</h2>
+          <h2 className="sub-heading max-[600px]:hidden text-anim">Partners</h2>
           <h2 className="text-[42px] hidden max-[600px]:block mb-[12px]">
             Partners
           </h2>
@@ -189,8 +207,8 @@ export default function Partners() {
 
         {/* Container for partner cards */}
         <GreenCard
-          className="w-[90%] mx-auto min-h-[750px]"
-          contentClass=" px-[48px] pt-[80px] py-[70px] max-[600px]:py-[40px] max-[600px]:px-[0px]  relative"
+          className="w-[90%] mx-auto max-[1024px]:min-h-[750px]"
+          contentClass=" px-[48px] pt-[80px] py-[70px] max-[600px]:py-[40px] max-[600px]:px-[0px] partner-cards-cont relative"
         >
           <div className="flex justify-between gap-[15px] items-center max-[1024px]:hidden">
             {partnerList.map((partner) => (
@@ -220,7 +238,7 @@ export default function Partners() {
 
           {/* Container for scroll right and left */}
 
-          <div className="flex justify-center items-center gap-[30px] mt-[-60px] z-[12] relative">
+          <div className="max-[1024px]:flex hidden justify-center items-center gap-[30px] mt-[-60px] z-[12] relative">
             {/* Left btn */}
             <button
               onClick={() => {
@@ -260,10 +278,10 @@ function PartnerCard({
 }: TPartner) {
   return (
     <div
-      className={`flex flex-col items-start  max-[1024px]:items-center w-[97%] max-w-[350px] max-[1024px]:max-w-[324px] max-[1024px]:absolute max-[1024px]:inset-0 ${className}`}
+      className={`flex flex-col items-start  max-[1024px]:items-center w-[97%] max-w-[350px] max-[1024px]:max-w-[324px] max-[1024px]:absolute max-[1024px]:inset-0 relative partner-card ${className}`}
     >
       {/* Heading */}
-      <h3 className="text-[42px] max-[600px]:text-[32px] max-[600px]:mb-[20px] leading-[100%]">
+      <h3 className="text-anim text-[42px] max-[600px]:text-[32px] max-[600px]:mb-[20px] leading-[100%]">
         {heading}
       </h3>
 
@@ -276,7 +294,7 @@ function PartnerCard({
         />
         <Image
           src={building}
-          className={`absolute  center-y z-[3] ${buildingClass}`}
+          className={`absolute partner-card-building  center-y z-[3] ${buildingClass}`}
           alt="building"
         />
       </div>
